@@ -9,7 +9,7 @@ import org.testng.Assert;
 
 import java.time.Duration;
 
-public class MailRuAppManager {
+public class MailRuPageManager {
     WebDriver driver;
 
     public void init() {
@@ -26,10 +26,13 @@ public class MailRuAppManager {
     }
 
     public void login(String username, String password) {
-        driver.findElement(By.name("username")).sendKeys(username);
-        driver.findElement(By.name("username")).sendKeys(Keys.ENTER);
-        driver.findElement(By.name("password")).sendKeys(password);
-        driver.findElement(By.name("password")).sendKeys(Keys.ENTER);
+        WebElement usernameField = driver.findElement(By.name("username"));
+        usernameField.sendKeys(username);
+        usernameField.sendKeys(Keys.ENTER);
+
+        WebElement passwordField = driver.findElement(By.name("password"));
+        passwordField.sendKeys(password);
+        passwordField.sendKeys(Keys.ENTER);
     }
 
     public void openComposeNewEmailForm() {
